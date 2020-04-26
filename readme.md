@@ -7,80 +7,53 @@
 [![Standard Code Style][style]][style-url]
 [![Chat][chat]][chat-badge]
 
-Clone this repo and explain what your plugin do and why thousands of people need it ;)
+This plugin is for converting markdown to html using [markdown-it](https://github.com/markdown-it/markdown-it). (PS. This is my first plugin so go easy on me.)
 
 Before:
 ``` html
-<html>
-  <body>
-    <p class="wow">OMG</p>
-  </body>
-</html>
+<md class="lol">
+  # Markdown, Yeah!
+  ---
+  > Working !
+</md>
 ```
 
 After:
 ``` html
-<svg xmlns="http://www.w3.org/2000/svg">
-  <text class="wow" id="wow_id" fill="#4A83B4" fill-rule="evenodd" font-family="Verdana">
-    OMG
-  </text>
-</svg>
+<div class="lol">
+    <h1>Markdown, Yeah!</h1>
+    <hr>
+    <blockquote>
+    <p>Working !</p>
+    </blockquote>
+
+</div>
 ```
 
 ## Install
 
-Describe how big guys can install your plugin.
-
-> npm i posthtml posthtml-plugin
+> npm i posthtml posthtml-markdownit -D
 
 ## Usage
 
-Describe how people can use this plugin. Include info about build systems if it's
-necessary.
+Options will be directly passed into markdown-it. This plugin calculates whitespaces based on 
+the first indented text.
 
 ``` js
 const fs = require('fs');
 const posthtml = require('posthtml');
-const posthtmlPlugin = require('posthtml-plugin');
+const markdown = require('posthtml-markdownit');
 
 posthtml()
-    .use(posthtmlPlugin({ /* options */ }))
+    .use(markdown({ /* options */ }))
     .process(html/*, options */)
     .then(result => fs.writeFileSync('./after.html', result.html));
 ```
 
 ## Options
 
-Describe all features of your plugin with examples of usage.
+All options are passed to markdown-it
 
-### Feature
-Before:
-``` html
-<html>
-  <body>
-    <p>OMG</p>
-  </body>
-</html>
-```
-Add option:
-``` js
-const fs = require('fs');
-const posthtml = require('posthtml');
-const posthtmlPlugin = require('posthtml-plugin');
-
-posthtml()
-    .use(posthtmlPlugin({ feature: 'wow' }))
-    .process(html/*, options */)
-    .then(result => fs.writeFileSync('./after.html', result.html));
-```
-After:
-``` html
-<html>
-  <body>
-    <p class="wow">OMG</p>
-  </body>
-</html>
-```
 
 ### Contributing
 
