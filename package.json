@@ -1,14 +1,17 @@
 {
-  "name": "posthtml-plugin",
-  "description": "PostHTML plugin description",
+  "name": "posthtml-markdownit",
+  "description": "A PostHTML plugin to transform markdown using markdown-it",
   "version": "1.0.0",
-  "author": "PostHTML",
+  "author": "TheComputerM",
   "ava": {
     "verbose": "true"
   },
-  "bugs": "https://github.com/posthtml/posthtml-plugin-boilerplate/issues",
+  "bugs": "https://github.com/TheComputerM/posthtml-markdownit/issues",
   "dependencies": {
-    "posthtml": "^0.11.4"
+    "markdown-it": "^10.0.0",
+    "posthtml": "^0.11.4",
+    "posthtml-parser": "^0.4.2",
+    "posthtml-render": "^1.2.2"
   },
   "devDependencies": {
     "@commitlint/cli": "^8.0.0",
@@ -24,7 +27,7 @@
   "engines": {
     "node": ">=8"
   },
-  "homepage": "https://github.com/posthtml/posthtml-plugin-boilerplate",
+  "homepage": "https://github.com/TheComputerM/posthtml-markdownit",
   "keywords": [
     "html",
     "posthtml",
@@ -32,20 +35,19 @@
   ],
   "license": "MIT",
   "main": "lib",
-  "repository": "posthtml/posthtml-plugin-boilerplate",
+  "repository": "TheComputerM/posthtml-markdownit",
   "scripts": {
     "version": "conventional-changelog -i changelog.md -s -r 0 && git add changelog.md",
-    "lint": "standard | snazzy",
+    "lint": "standard --fix | snazzy",
     "release-major": "mversion major",
     "release-minor": "mversion minor",
     "release-patch": "mversion patch",
-    "test": "npm run lint && ava"
+    "test": "ava"
   },
   "husky": {
     "hooks": {
       "pre-push": "npm t",
-      "pre-commit": "npm run lint",
-      "commit-msg": "commitlint --extends=@commitlint/config-angular -e"
+      "pre-commit": "npm run lint"
     }
   }
 }
