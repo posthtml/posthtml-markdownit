@@ -1,11 +1,9 @@
 # PostHTML Plugin Boilerplate <img align="right" width="220" height="200" title="PostHTML logo" src="http://posthtml.github.io/posthtml/logo.svg">
 
 [![NPM][npm]][npm-url]
-[![Deps][deps]][deps-url]
 [![Build][build]][build-badge]
 [![Coverage][cover]][cover-badge]
 [![Standard Code Style][style]][style-url]
-[![Chat][chat]][chat-badge]
 
 This plugin is for converting markdown to html using [markdown-it](https://github.com/markdown-it/markdown-it). (PS. This is my first plugin so go easy on me.)
 
@@ -61,11 +59,8 @@ See [PostHTML Guidelines](https://github.com/posthtml/posthtml/tree/master/docs)
 
 ### License [MIT](LICENSE)
 
-[npm]: https://img.shields.io/npm/v/posthtml.svg
-[npm-url]: https://npmjs.com/package/posthtml
-
-[deps]: https://david-dm.org/posthtml/posthtml.svg
-[deps-url]: https://david-dm.org/posthtml/posthtml
+[npm]: https://img.shields.io/npm/v/posthtml-markdownit.svg
+[npm-url]: https://npmjs.com/package/posthtml-markdownit
 
 [style]: https://img.shields.io/badge/code%20style-standard-yellow.svg
 [style-url]: http://standardjs.com/
@@ -75,7 +70,3 @@ See [PostHTML Guidelines](https://github.com/posthtml/posthtml/tree/master/docs)
 
 [cover]: https://coveralls.io/repos/posthtml/posthtml/badge.svg?branch=master
 [cover-badge]: https://coveralls.io/r/posthtml/posthtml?branch=master
-
-
-[chat]: https://badges.gitter.im/posthtml/posthtml.svg
-[chat-badge]: https://gitter.im/posthtml/posthtml?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge"

@@ -31,7 +31,8 @@
   "keywords": [
     "html",
     "posthtml",
-    "posthtml-plugin"
+    "posthtml-plugin",
+    "markdown"
   ],
   "license": "MIT",
   "main": "lib",
@@ -46,7 +47,6 @@
   },
   "husky": {
     "hooks": {
-      "pre-push": "npm t",
       "pre-commit": "npm run lint"
     }
   }
