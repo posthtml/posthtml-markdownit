@@ -9,6 +9,7 @@
   "bugs": "https://github.com/TheComputerM/posthtml-markdownit/issues",
   "dependencies": {
     "markdown-it": "^10.0.0",
+    "min-indent": "^1.0.0",
     "posthtml": "^0.11.4",
     "posthtml-parser": "^0.4.2",
     "posthtml-render": "^1.2.2"
@@ -44,6 +45,7 @@
   },
   "husky": {
     "hooks": {
+      "pre-push": "npm t",
       "pre-commit": "npm run lint"
     }
   }
