@@ -16,12 +16,15 @@ test('code', (t) => {
 test('change tag', (t) => {
   return compare(t, 'change-tag')
 })
+test('importing', (t) => compare(t, 'importing'))
 
 function compare (t, name) {
   const html = readFileSync(path.join(fixtures, `${name}.html`), 'utf8')
   const expected = readFileSync(path.join(fixtures, `${name}.expected.html`), 'utf8')
 
-  return posthtml([plugin()])
+  return posthtml([plugin({
+    root: './test/fixtures/'
+  })])
     .process(html)
     .then((res) => {
       writeFileSync(path.join(__dirname, `/output/${name}.expected.html`), res.html, () => true)
