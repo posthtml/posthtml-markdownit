@@ -17,13 +17,17 @@ test('change tag', (t) => {
   return compare(t, 'change-tag')
 })
 test('importing', (t) => compare(t, 'importing'))
+test('plugin', (t) => compare(t, 'plugin'))
 
 function compare (t, name) {
   const html = readFileSync(path.join(fixtures, `${name}.html`), 'utf8')
   const expected = readFileSync(path.join(fixtures, `${name}.expected.html`), 'utf8')
 
   return posthtml([plugin({
-    root: './test/fixtures/'
+    root: './test/fixtures/',
+    plugins: [
+      {plugin: require("markdown-it-emoji"), options: {}}
+    ]
   })])
     .process(html)
     .then((res) => {

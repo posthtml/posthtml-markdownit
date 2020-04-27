@@ -94,6 +94,7 @@ markdown({
 })
 ```
 
+There are some basic examples in the test/fixtures directory.
 
 ### Contributing
 
