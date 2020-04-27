@@ -1,32 +1,39 @@
-# PostHTML Plugin Boilerplate <img align="right" width="220" height="200" title="PostHTML logo" src="http://posthtml.github.io/posthtml/logo.svg">
+<div align="center">
+  <img width="150" height="150" title="PostHTML" src="https://posthtml.github.io/posthtml/logo.svg">
+  <h1>posthtml-markdownit</h1>
+  <p>Transform markdown using markdown-it</p>
 
-[![NPM][npm]][npm-url]
-[![Build][build]][build-badge]
-[![Coverage][cover]][cover-badge]
-[![Standard Code Style][style]][style-url]
+  [![Version][npm-version-shield]][npm]
+  [![License][license-shield]][license]
+  [![Build][travis-ci-shield]][travis-ci]
+  [![Downloads][npm-stats-shield]][npm-stats]
+</div>
 
-This plugin is for converting markdown to html using [markdown-it](https://github.com/markdown-it/markdown-it). (PS. This is my first plugin so go easy on me.)
+## Introduction
+
+This plugin converts Markdown to HTML using [markdown-it](https://github.com/markdown-it/markdown-it).
 
 Before:
-``` html
-<md class="lol" tag="section">
-    # Heading 1
-    ---
 
-    Paragraph with some text
+```html
+<markdown>
+  # Heading 1
+  ---
 
-    *Italic*
-    __Bold__
+  Paragraph with some text
 
-    - List item 1
-    - List item 2
-    - List item 3
-</md>
+  *Italic*
+  __Bold__
+
+  - List item 1
+  - List item 2
+  - List item 3
+</markdown>
 ```
 
 After:
-``` html
-<section class="lol">
+
+```html
 <h1>Heading 1</h1>
 <hr>
 <p>Paragraph with some text</p>
@@ -37,79 +44,154 @@ After:
 <li>List item 2</li>
 <li>List item 3</li>
 </ul>
-</section>
 ```
 
-------
+## Install
+
+```
+$ npm i posthtml posthtml-markdownit
+```
+
+## Usage
+
+```js
+const posthtml = require('posthtml')
+const markdown = require('posthtml-markdownit')
+
+posthtml([
+    markdown()
+  ])
+  .process('<markdown># Test</markdown>')
+  .then(result => console.log(result.html))
+
+  // <h1>TEST</h1>
+```
+
+### Importing files
+
+You can import and render Markdown files:
 
 Before:
+
 ```html
 <markdown src="./README.md">
-    # Imported
+  # Imported
 </markdown>
 ```
 
 After:
+
 ```html
-<div>
-<!-- contents of README.md -->
+<!-- contents of README.md here -->
 <h1>Imported</h1>
+```
+
+## Syntax
+
+### Tags
+
+Both `<markdown>` and `<md>` tags are suported.
+
+Before:
+
+```html
+<md>
+  # Heading 1
+</md>
+```
+
+After:
+
+```html
+<h1>Heading 1</h1>
+```
+
+By default, the tags are removed. See the [tag attribute](#tag) if you need a wrapping tag around your Markdown content.
+
+### Attributes
+
+You can also use `markdown` or `md` attributes on any element:
+
+Before:
+
+```html
+<div md>
+  # Heading 1
 </div>
 ```
 
-All `src` paths should be relative to the root option passed in the plugin
+After:
 
-## Install
+```html
+<h1>Heading 1</h1>
+```
 
-> npm i posthtml posthtml-markdownit -D
+#### `tag`
 
-## Usage
+You can use a `tag` attribute to wrap the resulting markup in a tag:
 
-Options will be directly passed into markdown-it. This plugin calculates whitespaces based on 
-the first indented text.
+Before:
 
-``` js
-const fs = require('fs');
-const posthtml = require('posthtml');
-const markdown = require('posthtml-markdownit');
+```html
+<md tag="section">
+  # Heading 1
+</md>
+```
 
-posthtml()
-    .use(markdown({ /* options */ }))
-    .process(html/*, options */)
-    .then(result => fs.writeFileSync('./after.html', result.html));
+After:
+
+```html
+<section>
+  <h1>Heading 1</h1>
+</section>
 ```
 
 ## Options
 
-- `root`: (default: `./`) Path for markdown files which are imported.
-- `encoding`: (default: `utf-8`) Encoding for imported markdown files
-- `markdownit`: (default: `{}`) Options passed into markdown-it
-- `plugins`: (default: `[]`) Plugins for markdown-it. Example:
+### `root`
+
+Type: `string`\
+Default: `./`
+
+A path relative to which markdown files are [imported](#importing-files).
+
+### `encoding`
+
+Type: `string`\
+Default: `utf8`
+
+Encoding for imported Markdown files.
+
+### `markdownit`
+
+Type: `object`\
+Default: `{}`
+
+Options passed to markdown-it. See the [available options](https://github.com/markdown-it/markdown-it#init-with-presets-and-options).
+
+### `plugins`
+
+Type: `array`\
+Default: `[]`
+
+Plugins for markdown-it.
+
+Example:
+
 ```js
 markdown({
-    plugins: [{
-        plugin: require("markdown-it-emoji"),
-        options: // Options for markdown-it-emoji
-    }]
+  plugins: [{
+    plugin: require('markdown-it-emoji'),
+    options: {} // Options for markdown-it-emoji
+  }]
 })
 ```
 
-There are some basic examples in the test/fixtures directory.
-
-### Contributing
-
-See [PostHTML Guidelines](https://github.com/posthtml/posthtml/tree/master/docs) and [contribution guide](CONTRIBUTING.md).
-
-### License [MIT](LICENSE)
-
-[npm]: https://img.shields.io/npm/v/posthtml-markdownit.svg
-[npm-url]: https://npmjs.com/package/posthtml-markdownit
-
-[style]: https://img.shields.io/badge/code%20style-standard-yellow.svg
-[style-url]: http://standardjs.com/
-
-[build]: https://travis-ci.org/posthtml/posthtml.svg?branch=master
-[build-badge]: https://travis-ci.org/posthtml/posthtml?branch=master
-
-[cover]: https://coveralls.io/repos/posthtml/posthtml/badge.svg?branch=master
-[cover-badge]: https://coveralls.io/r/posthtml/posthtml?branch=master
+[npm]: https://www.npmjs.com/package/posthtml-markdownit
+[npm-version-shield]: https://img.shields.io/npm/v/posthtml-markdownit.svg
+[npm-stats]: http://npm-stat.com/charts.html?package=posthtml-markdownit
+[npm-stats-shield]: https://img.shields.io/npm/dt/posthtml-markdownit.svg
+[travis-ci]: https://travis-ci.org/posthtml/posthtml-markdownit/
+[travis-ci-shield]: https://img.shields.io/travis/posthtml/posthtml-markdownit/master.svg
+[license]: ./LICENSE
+[license-shield]: https://img.shields.io/npm/l/posthtml-markdownit.svg
