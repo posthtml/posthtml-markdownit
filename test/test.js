@@ -17,23 +17,23 @@ const compare = (t, name, options, log = false) => {
     .then(html => t.is(html, expected(name).trim()))
 }
 
-test('basic', t => {
+test('Basic', t => {
   return compare(t, 'basic')
 })
 
-test('code', t => {
+test('Fenced code block', t => {
   return compare(t, 'code')
 })
 
-test('change tag', t => {
+test('Custom tag', t => {
   return compare(t, 'change-tag')
 })
 
-test('importing', t => {
+test('Render markdown in imported file', t => {
   return compare(t, 'importing')
 })
 
-test('plugin', t => {
+test('Uses markdown-it plugins', t => {
   return compare(t, 'plugin', {
     plugins: [{
       plugin: require('markdown-it-emoji')
