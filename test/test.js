@@ -34,9 +34,17 @@ test('Render markdown in imported file', t => {
 })
 
 test('Uses markdown-it plugins', t => {
-  return compare(t, 'plugin', {
+  return compare(t, 'md-plugin', {
     plugins: [{
       plugin: require('markdown-it-emoji')
     }]
+  })
+})
+
+test('Uses markdown-it options', t => {
+  return compare(t, 'md-options', {
+    markdownit: {
+      linkify: true
+    }
   })
 })
