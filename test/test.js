@@ -17,7 +17,5 @@ function compare (t, name) {
 
   return posthtml([plugin()])
     .process(html)
-    .then((res) => {
-      return t.truthy(res.html === expected)
-    })
+    .then((res) => t.truthy(res.html === expected))
 }
