@@ -10,21 +10,34 @@ This plugin is for converting markdown to html using [markdown-it](https://githu
 Before:
 ``` html
 <md class="lol">
-  # Markdown, Yeah!
-  ---
-  > Working !
+    # Heading 1
+    ---
+
+    Paragraph with some text
+
+    *Italic*
+    __Bold__
+
+    - List item 1
+    - List item 2
+    - List item 3
 </md>
 ```
 
 After:
 ``` html
 <div class="lol">
-    <h1>Markdown, Yeah!</h1>
+    <div>
+    <h1>Heading 1</h1>
     <hr>
-    <blockquote>
-    <p>Working !</p>
-    </blockquote>
-
+    <p>Paragraph with some text</p>
+    <p><em>Italic</em>
+    <strong>Bold</strong></p>
+    <ul>
+    <li>List item 1</li>
+    <li>List item 2</li>
+    <li>List item 3</li>
+    </ul>
 </div>
 ```
 
