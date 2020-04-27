@@ -26,7 +26,7 @@ function compare (t, name) {
   return posthtml([plugin({
     root: './test/fixtures/',
     plugins: [
-      {plugin: require("markdown-it-emoji"), options: {}}
+      { plugin: require('markdown-it-emoji'), options: {} }
     ]
   })])
     .process(html)
