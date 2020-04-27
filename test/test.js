@@ -2,13 +2,19 @@
 
 const test = require('ava')
 const plugin = require('../lib/index')
-const { readFileSync } = require('fs')
+const { readFileSync, writeFileSync } = require('fs')
 const path = require('path')
 const posthtml = require('posthtml')
 const fixtures = path.join(__dirname, 'fixtures')
 
 test('basic', (t) => {
   return compare(t, 'basic')
+})
+test('code', (t) => {
+  return compare(t, 'code')
+})
+test('change tag', (t) => {
+  return compare(t, 'change-tag')
 })
 
 function compare (t, name) {
@@ -17,5 +23,8 @@ function compare (t, name) {
 
   return posthtml([plugin()])
     .process(html)
-    .then((res) => t.truthy(res.html === expected))
+    .then((res) => {
+      writeFileSync(path.join(__dirname, `/output/${name}.expected.html`), res.html, () => true)
+      return t.truthy(res.html === expected)
+    })
 }
