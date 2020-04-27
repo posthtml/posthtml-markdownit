@@ -9,7 +9,7 @@ This plugin is for converting markdown to html using [markdown-it](https://githu
 
 Before:
 ``` html
-<md class="lol" changeTo="section">
+<md class="lol" tag="section">
     # Heading 1
     ---
 
@@ -40,6 +40,25 @@ After:
 </section>
 ```
 
+------
+
+Before:
+```html
+<markdown src="./README.md">
+    # Imported
+</markdown>
+```
+
+After:
+```html
+<div>
+<!-- contents of README.md -->
+<h1>Imported</h1>
+</div>
+```
+
+All `src` paths should be relative to the root option passed in the plugin
+
 ## Install
 
 > npm i posthtml posthtml-markdownit -D
@@ -62,7 +81,18 @@ posthtml()
 
 ## Options
 
-All options are passed to markdown-it
+- `root`: (default: `./`) Path for markdown files which are imported.
+- `encoding`: (default: `utf-8`) Encoding for imported markdown files
+- `markdownit`: (default: `{}`) Options passed into markdown-it
+- `plugins`: (default: `[]`) Plugins for markdown-it. Example:
+```js
+markdown({
+    plugins: [{
+        plugin: require("markdown-it-emoji"),
+        options: // Options for markdown-it-emoji
+    }]
+})
+```
 
 
 ### Contributing
