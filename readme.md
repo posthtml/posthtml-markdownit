@@ -9,7 +9,7 @@ This plugin is for converting markdown to html using [markdown-it](https://githu
 
 Before:
 ``` html
-<md class="lol">
+<md class="lol" changeTo="section">
     # Heading 1
     ---
 
@@ -26,19 +26,18 @@ Before:
 
 After:
 ``` html
-<div class="lol">
-    <div>
-    <h1>Heading 1</h1>
-    <hr>
-    <p>Paragraph with some text</p>
-    <p><em>Italic</em>
-    <strong>Bold</strong></p>
-    <ul>
-    <li>List item 1</li>
-    <li>List item 2</li>
-    <li>List item 3</li>
-    </ul>
-</div>
+<section class="lol">
+<h1>Heading 1</h1>
+<hr>
+<p>Paragraph with some text</p>
+<p><em>Italic</em>
+<strong>Bold</strong></p>
+<ul>
+<li>List item 1</li>
+<li>List item 2</li>
+<li>List item 3</li>
+</ul>
+</section>
 ```
 
 ## Install
