@@ -12,7 +12,7 @@
     "node": ">=10"
   },
   "scripts": {
-    "test": "ava",
+    "test": "nyc ava",
     "lint": "xo",
     "pretest": "npm run lint",
     "release": "np"
