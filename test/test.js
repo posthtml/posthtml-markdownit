@@ -1,37 +1,50 @@
-'use strict'
-
 const test = require('ava')
-const plugin = require('../lib/index')
-const { readFileSync, writeFileSync } = require('fs')
-const path = require('path')
+const plugin = require('../lib')
 const posthtml = require('posthtml')
-const fixtures = path.join(__dirname, 'fixtures')
 
-test('basic', (t) => {
+const {join} = require('path')
+const {readFileSync} = require('fs')
+
+const fixture = file => readFileSync(join(__dirname, 'fixtures', `${file}.html`), 'utf8')
+const expected = file => readFileSync(join(__dirname, 'expected', `${file}.html`), 'utf8')
+
+const clean = html => html.replace(/[^\S\r\n]+$/gm, '').trim()
+
+const compare = (t, name, options, log = false) => {
+  return posthtml([plugin(options)])
+    .process(fixture(name))
+    .then(result => log ? console.log(result.html) : clean(result.html))
+    .then(html => t.is(html, expected(name).trim()))
+}
+
+test('Basic', t => {
   return compare(t, 'basic')
 })
-test('code', (t) => {
+
+test('Fenced code block', t => {
   return compare(t, 'code')
 })
-test('change tag', (t) => {
+
+test('Custom tag', t => {
   return compare(t, 'change-tag')
 })
-test('importing', (t) => compare(t, 'importing'))
-test('plugin', (t) => compare(t, 'plugin'))
 
-function compare (t, name) {
-  const html = readFileSync(path.join(fixtures, `${name}.html`), 'utf8')
-  const expected = readFileSync(path.join(fixtures, `${name}.expected.html`), 'utf8')
+test('Render markdown in imported file', t => {
+  return compare(t, 'importing')
+})
 
-  return posthtml([plugin({
-    root: './test/fixtures/',
-    plugins: [
-      { plugin: require('markdown-it-emoji'), options: {} }
-    ]
-  })])
-    .process(html)
-    .then((res) => {
-      writeFileSync(path.join(__dirname, `/output/${name}.expected.html`), res.html, () => true)
-      return t.truthy(res.html === expected)
-    })
-}
+test('Uses markdown-it plugins', t => {
+  return compare(t, 'md-plugin', {
+    plugins: [{
+      plugin: require('markdown-it-emoji')
+    }]
+  })
+})
+
+test('Uses markdown-it options', t => {
+  return compare(t, 'md-options', {
+    markdownit: {
+      linkify: true
+    }
+  })
+})
