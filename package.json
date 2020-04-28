@@ -12,9 +12,13 @@
     "node": ">=10"
   },
   "scripts": {
-    "test": "nyc ava",
-    "pretest": "xo",
+    "test": "ava",
+    "lint": "xo",
+    "pretest": "npm run lint",
     "release": "np"
+  },
+  "np": {
+    "yarn": false
   },
   "keywords": [
     "html",
@@ -32,7 +36,7 @@
   "devDependencies": {
     "ava": "^3.8.0",
     "markdown-it-emoji": "^1.4.0",
-    "np": "^6.2.0",
+    "np": "^6.2.3",
     "nyc": "^15.0.0",
     "xo": "^0.30.0"
   }
