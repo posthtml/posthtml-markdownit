@@ -49,7 +49,7 @@ After:
 ## Install
 
 ```
-$ npm i posthtml posthtml-markdownit
+$ npm i -D posthtml-markdownit
 ```
 
 ## Usage
@@ -64,7 +64,7 @@ posthtml([
   .process('<markdown># Test</markdown>')
   .then(result => console.log(result.html))
 
-  // <h1>TEST</h1>
+  // <h1>Test</h1>
 ```
 
 ### Importing files
