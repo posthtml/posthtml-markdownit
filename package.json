@@ -35,9 +35,16 @@
   },
   "devDependencies": {
     "ava": "^3.8.0",
+    "husky": "^4.2.5",
     "markdown-it-emoji": "^1.4.0",
     "np": "^6.2.3",
     "nyc": "^15.0.0",
     "xo": "^0.30.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint",
+      "pre-push": "npm test"
+    }
   }
 }
