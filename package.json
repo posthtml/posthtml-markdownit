@@ -34,11 +34,11 @@
     "posthtml-render": "^1.2.2"
   },
   "devDependencies": {
-    "ava": "^3.8.0",
+    "ava": "^3.8.2",
     "husky": "^4.2.5",
     "markdown-it-emoji": "^1.4.0",
     "np": "^6.2.3",
-    "nyc": "^15.0.0",
+    "nyc": "^15.1.0",
     "xo": "^0.30.0"
   },
   "husky": {
