@@ -35,7 +35,7 @@
   },
   "devDependencies": {
     "ava": "^3.13.0",
-    "husky": "^4.2.5",
+    "husky": "^4.3.0",
     "markdown-it-emoji": "^1.4.0",
     "np": "^6.2.3",
     "nyc": "^15.1.0",
