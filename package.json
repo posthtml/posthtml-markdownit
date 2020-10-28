@@ -20,6 +20,9 @@
   "np": {
     "yarn": false
   },
+  "files": [
+    "lib"
+  ],
   "keywords": [
     "html",
     "posthtml",
