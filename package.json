@@ -30,7 +30,7 @@
     "markdown-it": "^12.0.2",
     "min-indent": "^1.0.0",
     "posthtml": "^0.13.4",
-    "posthtml-parser": "^0.4.2",
+    "posthtml-parser": "^0.5.1",
     "posthtml-render": "^1.2.2"
   },
   "devDependencies": {
