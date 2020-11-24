@@ -34,7 +34,7 @@
     "min-indent": "^1.0.0",
     "posthtml": "^0.15.0",
     "posthtml-parser": "^0.6.0",
-    "posthtml-render": "^1.2.3"
+    "posthtml-render": "^1.4.0"
   },
   "devDependencies": {
     "ava": "^3.13.0",
