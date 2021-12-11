@@ -7,12 +7,13 @@
   "bugs": "https://github.com/posthtml/posthtml-markdownit/issues",
   "homepage": "https://github.com/posthtml/posthtml-markdownit",
   "repository": "posthtml/posthtml-markdownit",
-  "main": "lib",
+  "type": "module",
+  "exports": "./lib/index.js",
   "engines": {
-    "node": ">=10"
+    "node": "^12.20.0 || ^14.13.1 || >=16.0.0"
   },
   "scripts": {
-    "test": "nyc ava",
+    "test": "c8 ava",
     "lint": "xo",
     "pretest": "npm run lint",
     "release": "np"
@@ -30,19 +31,19 @@
     "markdown"
   ],
   "dependencies": {
-    "markdown-it": "^12.0.2",
-    "min-indent": "^1.0.0",
-    "posthtml": "^0.15.0",
-    "posthtml-parser": "^0.6.0",
-    "posthtml-render": "^1.4.0"
+    "markdown-it": "^12.3.0",
+    "min-indent": "^1.0.1",
+    "posthtml": "^0.16.5",
+    "posthtml-parser": "^0.10.1",
+    "posthtml-render": "^3.0.0"
   },
   "devDependencies": {
-    "ava": "^3.13.0",
-    "husky": "^4.3.0",
+    "ava": "^3.15.0",
+    "c8": "^7.10.0",
+    "husky": "^7.0.4",
     "markdown-it-emoji": "^2.0.0",
-    "np": "^7.0.0",
-    "nyc": "^15.1.0",
-    "xo": "^0.35.0"
+    "np": "^7.6.0",
+    "xo": "^0.47.0"
   },
   "husky": {
     "hooks": {

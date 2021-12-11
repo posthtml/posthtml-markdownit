@@ -55,16 +55,20 @@ $ npm i -D posthtml-markdownit
 ## Usage
 
 ```js
-const posthtml = require('posthtml')
-const markdown = require('posthtml-markdownit')
+import posthtml from 'posthtml'
+import markdown from 'posthtml-markdownit'
 
 posthtml([
-    markdown()
-  ])
+  markdown()
+])
   .process('<markdown># Test</markdown>')
   .then(result => console.log(result.html))
+```
 
-  // <h1>Test</h1>
+Result:
+
+```html
+<h1>Test</h1>
 ```
 
 ### Importing files
@@ -90,7 +94,7 @@ After:
 
 ### Tags
 
-Both `<markdown>` and `<md>` tags are suported.
+Both `<markdown>` and `<md>` tags are supported.
 
 Before:
 
@@ -179,9 +183,11 @@ Plugins for markdown-it.
 Example:
 
 ```js
+import markdownitEmoji from 'markdown-it-emoji'
+
 markdown({
   plugins: [{
-    plugin: require('markdown-it-emoji'),
+    plugin: markdownitEmoji,
     options: {} // Options for markdown-it-emoji
   }]
 })
