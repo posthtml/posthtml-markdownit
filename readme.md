@@ -154,7 +154,7 @@ Before:
 
 ```html
 <p class="example">
-  <markdown src="./example.md">
+  <markdown src="./example.md" inline>
     Imported
   </markdown>
 </p>
