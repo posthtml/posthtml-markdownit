@@ -146,6 +146,34 @@ After:
 </section>
 ```
 
+#### `inline`
+
+You can mark the content to be rendered inline. This is helpful if you're including a file that will be used as an inline element and don't want the enclosing `p` tags.
+
+Before:
+
+```html
+<p class="example">
+  <markdown src="./example.md">
+    Imported
+  </markdown>
+</p>
+```
+
+After:
+
+```html
+<p class="example">Imported</p>
+```
+
+Instead of:
+
+```html
+<p class="example">
+  <p>Imported</p>
+</p>
+```
+
 ## Options
 
 ### `root`
