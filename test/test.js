@@ -36,6 +36,10 @@ test('Render markdown in imported file', t => {
   return compare(t, 'importing')
 })
 
+test('Render markdown inline from imported file', t => {
+  return compare(t, 'importing-inline')
+})
+
 test('Uses markdown-it plugins', t => {
   return compare(t, 'md-plugin', {
     plugins: [{
