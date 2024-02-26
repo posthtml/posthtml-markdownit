@@ -10,7 +10,7 @@
   "type": "module",
   "exports": "./lib/index.js",
   "engines": {
-    "node": ">=16"
+    "node": ">=18"
   },
   "scripts": {
     "dev": "vitest",
