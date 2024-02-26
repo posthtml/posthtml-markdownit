@@ -7,13 +7,15 @@
   "bugs": "https://github.com/posthtml/posthtml-markdownit/issues",
   "homepage": "https://github.com/posthtml/posthtml-markdownit",
   "repository": "posthtml/posthtml-markdownit",
-  "main": "lib",
+  "type": "module",
+  "exports": "./lib/index.js",
   "engines": {
     "node": ">=16"
   },
   "scripts": {
-    "test": "nyc ava",
-    "lint": "xo",
+    "dev": "vitest",
+    "test": "vitest run --coverage",
+    "lint": "eslint lib/*.{js,ts}",
     "pretest": "npm run lint",
     "release": "np"
   },
@@ -37,10 +39,10 @@
     "posthtml-render": "^3.0.0"
   },
   "devDependencies": {
-    "ava": "^5.3.1",
+    "@vitest/coverage-v8": "^1.3.1",
+    "eslint": "^7.32.0",
     "markdown-it-emoji": "^3.0.0",
     "np": "^10.0.0",
-    "nyc": "^15.1.0",
-    "xo": "^0.39.0"
+    "vitest": "^1.3.1"
   }
 }
