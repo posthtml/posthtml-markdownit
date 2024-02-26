@@ -4,8 +4,8 @@
   <p>Transform markdown using markdown-it</p>
 
   [![Version][npm-version-shield]][npm]
+  [![Build][github-ci-shield]][github-ci]
   [![License][license-shield]][license]
-  [![Build][travis-ci-shield]][travis-ci]
   [![Downloads][npm-stats-shield]][npm-stats]
 </div>
 
@@ -223,7 +223,7 @@ markdown({
 [npm-version-shield]: https://img.shields.io/npm/v/posthtml-markdownit.svg
 [npm-stats]: http://npm-stat.com/charts.html?package=posthtml-markdownit
 [npm-stats-shield]: https://img.shields.io/npm/dt/posthtml-markdownit.svg
-[travis-ci]: https://travis-ci.org/posthtml/posthtml-markdownit/
-[travis-ci-shield]: https://img.shields.io/travis/posthtml/posthtml-markdownit/master.svg
+[github-ci]: https://github.com/posthtml/posthtml-markdownit/actions/workflows/nodejs.yml
+[github-ci-shield]: https://github.com/posthtml/posthtml-markdownit/actions/workflows/nodejs.yml/badge.svg
 [license]: ./LICENSE
 [license-shield]: https://img.shields.io/npm/l/posthtml-markdownit.svg
