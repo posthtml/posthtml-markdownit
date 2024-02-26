@@ -11,11 +11,11 @@
 
 ## Introduction
 
-This plugin converts Markdown to HTML using [markdown-it](https://github.com/markdown-it/markdown-it).
+This PostHTML plugin converts Markdown to HTML using [markdown-it](https://github.com/markdown-it/markdown-it).
 
 Before:
 
-```html
+```xml
 <markdown>
   # Heading 1
   ---
@@ -37,19 +37,21 @@ After:
 <h1>Heading 1</h1>
 <hr>
 <p>Paragraph with some text</p>
-<p><em>Italic</em>
-<strong>Bold</strong></p>
+<p>
+  <em>Italic</em>
+  <strong>Bold</strong>
+</p>
 <ul>
-<li>List item 1</li>
-<li>List item 2</li>
-<li>List item 3</li>
+  <li>List item 1</li>
+  <li>List item 2</li>
+  <li>List item 3</li>
 </ul>
 ```
 
 ## Install
 
 ```
-$ npm i -D posthtml-markdownit
+$ npm i -D posthtml posthtml-markdownit
 ```
 
 ## Usage
@@ -73,7 +75,7 @@ You can import and render Markdown files:
 
 Before:
 
-```html
+```xml
 <markdown src="./README.md">
   # Imported
 </markdown>
@@ -82,7 +84,7 @@ Before:
 After:
 
 ```html
-<!-- contents of README.md here -->
+<!-- contents of README.md, as HTML -->
 <h1>Imported</h1>
 ```
 
@@ -90,11 +92,11 @@ After:
 
 ### Tags
 
-Both `<markdown>` and `<md>` tags are suported.
+Both `<markdown>` and `<md>` tags are supported.
 
 Before:
 
-```html
+```xml
 <md>
   # Heading 1
 </md>
@@ -110,7 +112,7 @@ By default, the tags are removed. See the [tag attribute](#tag) if you need a wr
 
 ### Attributes
 
-You can also use `markdown` or `md` attributes on any element:
+You can also use the `markdown` or `md` attributes on an HTML element:
 
 Before:
 
@@ -132,7 +134,7 @@ You can use a `tag` attribute to wrap the resulting markup in a tag:
 
 Before:
 
-```html
+```xml
 <md tag="section">
   # Heading 1
 </md>
@@ -152,12 +154,12 @@ You can mark the content to be rendered inline. This is helpful if you're includ
 
 Before:
 
-```html
-<p class="example">
+```xml
+<div class="example">
   <markdown src="./example.md" inline>
     Imported
   </markdown>
-</p>
+</div>
 ```
 
 After:
@@ -169,9 +171,9 @@ After:
 Instead of:
 
 ```html
-<p class="example">
+<div class="example">
   <p>Imported</p>
-</p>
+</div>
 ```
 
 ## Options
@@ -207,9 +209,11 @@ Plugins for markdown-it.
 Example:
 
 ```js
+const {light: emoji} = require('markdown-it-emoji')
+
 markdown({
   plugins: [{
-    plugin: require('markdown-it-emoji'),
+    plugin: emoji,
     options: {} // Options for markdown-it-emoji
   }]
 })
