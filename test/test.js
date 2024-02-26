@@ -1,6 +1,7 @@
 const test = require('ava')
 const plugin = require('../lib')
 const posthtml = require('posthtml')
+const {light: emoji} = require('markdown-it-emoji')
 
 const path = require('path')
 const {readFileSync} = require('fs')
@@ -40,7 +41,7 @@ test('Render markdown inline from imported file', t => {
 test('Uses markdown-it plugins', t => {
   return compare(t, 'md-plugin', {
     plugins: [{
-      plugin: require('markdown-it-emoji')
+      plugin: emoji
     }]
   })
 })
