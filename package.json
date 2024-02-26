@@ -9,7 +9,7 @@
   "repository": "posthtml/posthtml-markdownit",
   "main": "lib",
   "engines": {
-    "node": ">=10"
+    "node": ">=16"
   },
   "scripts": {
     "test": "nyc ava",
