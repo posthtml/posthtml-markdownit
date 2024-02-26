@@ -57,8 +57,8 @@ $ npm i -D posthtml posthtml-markdownit
 ## Usage
 
 ```js
-const posthtml = require('posthtml')
-const markdown = require('posthtml-markdownit')
+import posthtml from 'posthtml'
+import markdown from 'posthtml-markdownit'
 
 posthtml([
     markdown()
@@ -209,7 +209,7 @@ Plugins for markdown-it.
 Example:
 
 ```js
-const {light: emoji} = require('markdown-it-emoji')
+import {light as emoji} from 'markdown-it-emoji'
 
 markdown({
   plugins: [{
