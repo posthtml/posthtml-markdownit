@@ -1,7 +1,8 @@
 <div align="center">
   <img width="150" height="150" title="PostHTML" src="https://posthtml.github.io/posthtml/logo.svg">
   <h1>posthtml-markdownit</h1>
-  <p>Transform markdown using markdown-it</p>
+  
+  Transform Markdown to HTML
 
   [![Version][npm-version-shield]][npm]
   [![Build][github-ci-shield]][github-ci]
@@ -11,7 +12,7 @@
 
 ## Introduction
 
-This PostHTML plugin converts Markdown to HTML using [markdown-it](https://github.com/markdown-it/markdown-it).
+This PostHTML plugin compiles Markdown to HTML using [markdown-it](https://github.com/markdown-it/markdown-it).
 
 Before:
 

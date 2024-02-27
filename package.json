@@ -1,6 +1,6 @@
 {
   "name": "posthtml-markdownit",
-  "description": "A PostHTML plugin to transform markdown using markdown-it",
+  "description": "A PostHTML plugin to transform Markdown using markdown-it",
   "version": "2.0.0",
   "license": "MIT",
   "author": "TheComputerM",
