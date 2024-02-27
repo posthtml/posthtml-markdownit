@@ -1,8 +1,9 @@
 {
   "parserOptions": {
     "sourceType": "module",
-    "ecmaVersion": 2020
+    "ecmaVersion": 2023
   },
+  "plugins": ["@typescript-eslint"],
   "rules": {
     "indent": [2, 2, {"SwitchCase": 1}],
     "quotes": [2, "single"],
@@ -15,5 +16,8 @@
     "node": true,
     "browser": false
   },
-  "extends": "eslint:recommended"
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended"
+  ]
 }
