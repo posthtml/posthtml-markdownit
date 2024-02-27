@@ -1,7 +1,8 @@
 <div align="center">
   <img width="150" height="150" title="PostHTML" src="https://posthtml.github.io/posthtml/logo.svg">
   <h1>posthtml-markdownit</h1>
-  <p>Transform markdown using markdown-it</p>
+  
+  Transform Markdown to HTML
 
   [![Version][npm-version-shield]][npm]
   [![Build][github-ci-shield]][github-ci]
@@ -11,7 +12,7 @@
 
 ## Introduction
 
-This PostHTML plugin converts Markdown to HTML using [markdown-it](https://github.com/markdown-it/markdown-it).
+This PostHTML plugin compiles Markdown to HTML using [markdown-it](https://github.com/markdown-it/markdown-it).
 
 Before:
 
@@ -22,8 +23,8 @@ Before:
 
   Paragraph with some text
 
-  *Italic*
-  __Bold__
+  _Italic_
+  **Bold**
 
   - List item 1
   - List item 2
@@ -51,14 +52,14 @@ After:
 ## Install
 
 ```
-$ npm i -D posthtml posthtml-markdownit
+npm i -D posthtml posthtml-markdownit
 ```
 
 ## Usage
 
 ```js
-const posthtml = require('posthtml')
-const markdown = require('posthtml-markdownit')
+import posthtml from 'posthtml'
+import markdown from 'posthtml-markdownit'
 
 posthtml([
     markdown()
@@ -66,7 +67,7 @@ posthtml([
   .process('<markdown># Test</markdown>')
   .then(result => console.log(result.html))
 
-  // <h1>Test</h1>
+// <h1>Test</h1>
 ```
 
 ### Importing files
@@ -84,7 +85,7 @@ Before:
 After:
 
 ```html
-<!-- contents of README.md, as HTML -->
+<!-- Here be the contents of README.md, as HTML -->
 <h1>Imported</h1>
 ```
 
@@ -108,7 +109,7 @@ After:
 <h1>Heading 1</h1>
 ```
 
-By default, the tags are removed. See the [tag attribute](#tag) if you need a wrapping tag around your Markdown content.
+By default, the custom tags like `<md>` are replaced with the compiled Markdown. See the [tag attribute](#tag) if you need a wrapping tag around your Markdown content.
 
 ### Attributes
 
@@ -183,7 +184,7 @@ Instead of:
 Type: `string`\
 Default: `./`
 
-A path relative to which markdown files are [imported](#importing-files).
+A path relative to which Markdown files will be [imported](#importing-files).
 
 ### `encoding`
 
@@ -197,19 +198,19 @@ Encoding for imported Markdown files.
 Type: `object`\
 Default: `{}`
 
-Options passed to markdown-it. See the [available options](https://github.com/markdown-it/markdown-it#init-with-presets-and-options).
+Options passed to the `markdown-it` library. See the [available options](https://github.com/markdown-it/markdown-it#init-with-presets-and-options).
 
 ### `plugins`
 
 Type: `array`\
 Default: `[]`
 
-Plugins for markdown-it.
+Plugins for `markdown-it`.
 
 Example:
 
 ```js
-const {light: emoji} = require('markdown-it-emoji')
+import {light as emoji} from 'markdown-it-emoji'
 
 markdown({
   plugins: [{
