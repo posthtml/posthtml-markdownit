@@ -20,9 +20,6 @@
     "pretest": "npm run lint",
     "release": "np"
   },
-  "np": {
-    "yarn": false
-  },
   "files": [
     "lib"
   ],
