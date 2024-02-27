@@ -62,8 +62,8 @@ import posthtml from 'posthtml'
 import markdown from 'posthtml-markdownit'
 
 posthtml([
-    markdown()
-  ])
+  markdown()
+])
   .process('<markdown># Test</markdown>')
   .then(result => console.log(result.html))
 
