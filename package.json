@@ -1,7 +1,7 @@
 {
   "name": "posthtml-markdownit",
   "description": "A PostHTML plugin to transform Markdown using markdown-it",
-  "version": "3.0.2",
+  "version": "3.1.0",
   "license": "MIT",
   "author": "TheComputerM",
   "bugs": "https://github.com/posthtml/posthtml-markdownit/issues",
