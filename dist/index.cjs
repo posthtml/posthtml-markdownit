@@ -70,7 +70,7 @@ const plugin = (options) => {
           node.tag = node.attrs.tag;
           delete node.attrs.tag;
         }
-        if (Object.prototype.hasOwnProperty.call(node.attrs, "inline")) {
+        if (Object.hasOwn(node.attrs, "inline")) {
           if (node.attrs.inline === "" || node.attrs.inline) {
             inline = true;
           }
